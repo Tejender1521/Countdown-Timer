@@ -1,18 +1,29 @@
+
+// const daysE1= document.getElementById('days');
+const hoursEl= document.getElementById('hours');
+const minsE1= document.getElementById('mins');
+const secondsE1= document.getElementById('seconds');
+
+
 const newYears = "1 Jan 2022";
 
 function countdown(){
     const newYearsDate = new Date(newYears);
     const currentDate = new Date();
     
-    const seconds = (newYearsDate - currentDate) / 1000;
+    const totalSeconds = (newYearsDate - currentDate) / 1000;
 
-    const days = Math.floor(seconds / 3600 / 24);
+    const days = Math.floor(totalSeconds / 3600 / 24);
     
 
-    const hours = Math.floor(seconds / 3600) % 24;
-    const minutes = Math.floor(seconds / 3600) % 24 % 60;
+    const hours = Math.floor(totalSeconds / 3600) % 24;
+    const minutes = Math.floor(totalSeconds / 60) % 60;
 
-    console.log(days);
+    const seconds = Math.floor(totalSeconds) % 60;
+
+    hoursEl.innerHTML = hours;
+    minsE1.innerHTML = mins;
+    secondsE1.innerHTML = seconds;
 }
 
 
